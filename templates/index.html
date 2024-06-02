@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loan Calculator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Loan Calculator</h1>
+        <a href="{{ url_for('home') }}"><button>Back to Home</button></a>
+        <form method="POST">
+            <div>
+                <label for="principal">Principal Amount:</label>
+                <input type="number" step="0.01" id="principal" name="principal" required>
+            </div>
+            <div>
+                <label for="annual_rate">Annual Interest Rate (%):</label>
+                <input type="number" step="0.01" id="annual_rate" name="annual_rate" required>
+            </div>
+            <div>
+                <label for="years">Number of Years:</label>
+                <input type="number" id="years" name="years" required>
+            </div>
+            <button type="submit">Calculate</button>
+        </form>
+        {% if monthly_payment is not none %}
+        <div class="result">
+            <h2>Loan Details:</h2>
+            <p>Principal Amount: {{ principal }}</p>
+            <p>Annual Interest Rate: {{ annual_rate }}%</p>
+            <p>Number of Years: {{ years }}</p>
+            <p><strong>Monthly Payment: ${{ monthly_payment|round(2) }}</strong></p>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
