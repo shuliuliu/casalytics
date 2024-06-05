@@ -15,10 +15,14 @@ class LoanCalculator:
         @self.app.route('/')
         def home():
             return render_template('home.html')
+        
+        @self.app.route('/about')
+        def about():
+            return render_template('about.html')
 
         # bind the computePayment function to the /calculate URL with POST requests
-        @self.app.route('/calculate', methods=['GET', 'POST'])
-        def calculate():
+        @self.app.route('/calculate_loan', methods=['GET', 'POST'])
+        def calculate_loan():
             sales_price = None
             down_payment_percentage = None
             annual_nominal_rate = None
@@ -50,7 +54,7 @@ class LoanCalculator:
                 mortgage_details = get_mortgage_details(annual_rate, loan_amount, amortization_period, payment_frequency, term_period)
                 amortization_schedule = get_amortization_schedule(annual_rate, loan_amount, amortization_period, payment_frequency, term_period)
 
-            return render_template('index.html', **mortgage_details,amortization_schedule=amortization_schedule)
+            return render_template('loan_calc.html', **mortgage_details,amortization_schedule=amortization_schedule)
 
         
         def get_mortgage_details(annual_rate, loan_amount, amortization_period, payment_frequency, term_period):

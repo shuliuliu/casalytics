@@ -4,10 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Loan Calculator</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='loan_calc_page_style.css') }}">
 </head>
 <body>
-    <div class="container">
+    <header>
+        <nav>
+            <a href="{{ url_for('home') }}" class="nav-link">Back to Home Page</a>
+        </nav>
+    </header>
+    <main>
+        
         <h1>Loan Calculator</h1>
         
         <form method="POST">
@@ -80,8 +86,6 @@
             <p>Please enter your loan details to calculate the monthly payment.</p>
         {% endif %}
         
-
-        <a href="{{ url_for('home') }}"><button>Back to Home Page</button></a>
-    </div>
+    </main>
 </body>
 </html>

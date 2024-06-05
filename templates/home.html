@@ -4,13 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='home_page_style.css') }}">
 </head>
 <body>
-    <div class="container">
-        <h1>Welcome to the Loan Calculator App</h1>
-        <p>Use this app to calculate your monthly loan payments.</p>
-        <a href="{{ url_for('calculate') }}"><button>Go to Loan Calculator</button></a>
-    </div>
+    <header>
+        <nav>
+            <a href="{{ url_for('about') }}" class="nav-link">About</a>
+            <a href="{{ url_for('calculate_loan') }}" class="nav-link">Go to Loan Calculator</a>
+        </nav>
+    </header>
+    <div class="menu-icon"></div>
+    <main>
+        
+        <!--h1><img src="/image/casa.png" alt="Icon Image">Casalytics</h1-->
+        <h1>casalytics</h1>
+        <p>Insights into the real cost of loans.</p>
+        
+    </main>
+
 </body>
 </html>
